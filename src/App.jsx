@@ -10,6 +10,23 @@ function App() {
   const handleScroll = (e) => {
     setIsScrolled(e.currentTarget.scrollTop > 100);
   };
+  const contactInfo = [
+    {
+      id: 1,
+      contactName: "mail",
+      contact: "lubo.chynoradsky@gmail.com",
+    },
+    {
+      id: 2,
+      contactName: "github",
+      contact: "https://github.com/StretcH3421/",
+    },
+    {
+      id: 3,
+      contactName: "instagram",
+      contact: "https://instagram.com/lubeno77",
+    },
+  ];
 
   const projects = [
     {
@@ -140,6 +157,59 @@ function App() {
         id="section2"
         className="snap-start overflow-hidden relative w-full min-h-screen flex flex-col px-2.5 bg-linear-to-b from-[#FAF9F6] from-60% to-[#f0ede6]"
       >
+        <div
+          id="popup"
+          className=" scale-0 absolute inset-0 flex items-center justify-center z-10"
+        >
+          <div className="[@media(min-width:840px)]:w-1/2 [@media(min-width:840px)]:h-1/2 w-3/4 h-1/3 bg-[#faf9f6] border-black border">
+            <div className="flex flex-row-reverse pr-3 pt-3">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={() => {
+                  const popup = document.getElementById("popup");
+                  popup.classList.add("scale-0");
+                  popup.classList.remove("scale-100");
+
+                  const box = document.getElementById("box");
+                  box.classList.remove("opacity-20");
+                  box.classList.add("opacity-100");
+                }}
+                className="hover:scale-110"
+              >
+                <path
+                  d="M15 5L5 15M5 5L15 15"
+                  stroke="#1E1E1E"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            {contactInfo.map((key) => (
+              <div className="flex flex-col">
+                <div className="flex flex-row mb-5 ml-5 flex-1/3 gap-3">
+                  <h2
+                    id={key.id}
+                    className="text-[#111111] text-[0.7rem] sm:text-[1.4rem]"
+                  >
+                    {key.contactName}:
+                  </h2>
+
+                  <h2
+                    id={key.id}
+                    className="text-[#333333] text-[0.7rem] sm:text-[1.4rem]"
+                  >
+                    {key.contact}
+                  </h2>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         <div className="absolute inset-y-0 left-5 flex items-center">
           <div
             className="hidden xl:block whitespace-nowrap font-black text-[#BFA181] text-[1.6rem]"
@@ -160,6 +230,13 @@ function App() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               className="hover:scale-110"
+              onClick={() => {
+                const popup = document.getElementById("popup");
+                popup.classList.toggle("scale-100");
+                const box = document.getElementById("box");
+                box.classList.remove("opacity-100");
+                box.classList.toggle("opacity-20");
+              }}
             >
               <path
                 d="M5.5 27.5C4.74375 27.5 4.09635 27.2307 3.55781 26.6922C3.01927 26.1536 2.75 25.5063 2.75 24.75V8.25C2.75 7.49375 3.01927 6.84635 3.55781 6.30781C4.09635 5.76927 4.74375 5.5 5.5 5.5H27.5C28.2563 5.5 28.9036 5.76927 29.4422 6.30781C29.9807 6.84635 30.25 7.49375 30.25 8.25V24.75C30.25 25.5063 29.9807 26.1536 29.4422 26.6922C28.9036 27.2307 28.2563 27.5 27.5 27.5H5.5ZM16.5 17.875L5.5 11V24.75H27.5V11L16.5 17.875ZM16.5 15.125L27.5 8.25H5.5L16.5 15.125ZM5.5 11V8.25V24.75V11Z"
@@ -188,7 +265,10 @@ function App() {
             </svg>
           </div>
         </div>
-        <div className="flex flex-col sm:flex-row w-full mx-auto justify-center items-center sm:flex-1 mb-30">
+        <div
+          id="box"
+          className="opacity-100 flex flex-col sm:flex-row w-full mx-auto justify-center items-center sm:flex-1 mb-30"
+        >
           <div className="project-names text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] text-[#555555] flex flex-1 flex-col gap-3 xl:gap-8 text-center mt-25 mb-25 xl:mt-0 xl:mb-0 md:pl-5 xl:pl-15 ">
             {projects.map((project) => (
               <h2
