@@ -17,24 +17,28 @@ function App() {
       projectName: "GAMELIST",
       projectDescription:
         "GameList is a modern web application inspired by platforms like MyAnimeList, but focused on video games. The app fetches real time data directly from my own database made in Supabase and allows users to browse, search, and explore detailed information about thousands of games.The project was built using React with Vite for fast performance and a smooth development workflow. Styling is done with Tailwind CSS, enhanced by custom CSS variables to create a consistent cyberpunk inspired design system. The application focuses on clean UI, responsive layout, and efficient API data handling.",
+      projectLink: "https://github.com/StretcH3421/game-list",
     },
     {
       id: 2,
       projectName: "KDA/CAlC",
       projectDescription:
         "Game Stats Calculator is a command-line application written in C that analyzes player performance based on match statistics. The program accepts arguments such as kills, deaths, assists, and match duration, along with optional inputs like headshots, teamkills, and MVP status.It calculates advanced metrics including K/D, KDA, kills per minute (KPM), assists per minute (APM), and an overall performance score using a custom formula. Based on the final score, the player is assigned a rank ranging from “Noob” to “Godlike.” The project demonstrates strong understanding of C fundamentals, including command-line argument parsing, conditional logic, numeric calculations, input validation, and structured program design.",
+      projectLink: "https://github.com/StretcH3421/kda-calculator-c",
     },
     {
       id: 3,
       projectName: "LIBRARY MANAGER",
       projectDescription:
         "Library Manager is a command-line application written in C that allows users to manage a personal reading journal. The program enables adding new books with details such as title, author, genre, start and end dates (ISO format), rating, and notes. All records are stored in a local text file and loaded dynamically into memory when the program runs.In addition to adding books, the application supports listing and filtering entries by genre, reading status (currently reading or completed), and minimum rating. The project demonstrates practical use of C structures, dynamic memory allocation with realloc, file handling, string parsing, command-line argument processing, and input validation.",
+      projectLink: "https://github.com/StretcH3421/library-manager-c",
     },
     {
       id: 4,
       projectName: "TODOLIST",
       projectDescription:
         "To-Do List is a simple web application built to practice fundamental JavaScript concepts, especially DOM manipulation. The app allows users to add, mark as completed, and remove tasks dynamically without reloading the page.",
+      projectLink: "https://github.com/StretcH3421?tab=repositories",
     },
   ];
   return (
@@ -173,7 +177,16 @@ function App() {
             {projects
               .filter((project) => project.id == id)
               .map((project) => (
-                <p key={project.id}>{project.projectDescription}</p>
+                <p key={project.id}>
+                  {project.projectDescription}
+                  <a
+                    className="text-[#BFA181] hover:text-[#A17D55] hover:cursor-[url(assets/fonts/images/circle.png)_16_16,auto] underline px-4"
+                    href={project.projectLink}
+                    target="_blank"
+                  >
+                    Learn more
+                  </a>
+                </p>
               ))}
           </div>
         </div>
