@@ -52,7 +52,16 @@ function App() {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="#111111"
-        className={`xl:size-20 sm:size-15 size-10 fixed bottom-20 right-15 z-10 transition-transform duration-300 ${isScrolled ? "rotate-180" : ""}`}
+        className={`xl:size-20 sm:size-15 size-10 hover:scale-110 fixed bottom-20 right-15 z-10 transition-transform duration-300 ${isScrolled ? "rotate-180" : ""}`}
+        onClick={() =>
+          isScrolled
+            ? document
+                .getElementById("section1")
+                ?.scrollIntoView({ behavior: "smooth" })
+            : document
+                .getElementById("section2")
+                ?.scrollIntoView({ behavior: "smooth" })
+        }
       >
         <path
           strokeLinecap="round"
@@ -60,7 +69,10 @@ function App() {
           d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3"
         />
       </svg>
-      <section className="snap-start overflow-hidden relative w-full min-h-screen flex flex-col px-2.5 bg-linear-to-b from-[#FAF9F6] from-60% to-[#f0ede6]">
+      <section
+        id="section1"
+        className="snap-start overflow-hidden relative w-full min-h-screen flex flex-col px-2.5 bg-linear-to-b from-[#FAF9F6] from-60% to-[#f0ede6]"
+      >
         <div className="absolute inset-y-0 left-10 xl:left-20 2xl:left-32 flex items-center">
           <div
             className=" hidden sm:block whitespace-nowrap opacity-100 text-[#111111] text-[5.5em] md:text-[6rem] lg:text-[6.2rem] "
@@ -124,7 +136,10 @@ function App() {
           </div>
         </div>
       </section>
-      <section className="snap-start overflow-hidden relative w-full min-h-screen flex flex-col px-2.5 bg-linear-to-b from-[#FAF9F6] from-60% to-[#f0ede6]">
+      <section
+        id="section2"
+        className="snap-start overflow-hidden relative w-full min-h-screen flex flex-col px-2.5 bg-linear-to-b from-[#FAF9F6] from-60% to-[#f0ede6]"
+      >
         <div className="absolute inset-y-0 left-5 flex items-center">
           <div
             className="hidden xl:block whitespace-nowrap font-black text-[#BFA181] text-[1.6rem]"
@@ -134,28 +149,44 @@ function App() {
           </div>
         </div>
         <div className="w-full flex flex-row justify-between mt-12 px-10 xl:px-25">
-          <div className="text-[#111111] text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem]">
+          <div className="text-[#111111] mt-0.5 text-[1.4rem] sm:text-[1.6rem] md:text-[1.8rem] lg:text-[2rem]">
             PROJECTS
           </div>
+          <div className="flex flex-row gap-10">
+            <svg
+              width="33"
+              height="33"
+              viewBox="0 0 33 33"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="hover:scale-110"
+            >
+              <path
+                d="M5.5 27.5C4.74375 27.5 4.09635 27.2307 3.55781 26.6922C3.01927 26.1536 2.75 25.5063 2.75 24.75V8.25C2.75 7.49375 3.01927 6.84635 3.55781 6.30781C4.09635 5.76927 4.74375 5.5 5.5 5.5H27.5C28.2563 5.5 28.9036 5.76927 29.4422 6.30781C29.9807 6.84635 30.25 7.49375 30.25 8.25V24.75C30.25 25.5063 29.9807 26.1536 29.4422 26.6922C28.9036 27.2307 28.2563 27.5 27.5 27.5H5.5ZM16.5 17.875L5.5 11V24.75H27.5V11L16.5 17.875ZM16.5 15.125L27.5 8.25H5.5L16.5 15.125ZM5.5 11V8.25V24.75V11Z"
+                fill="#1D1B20"
+              />
+            </svg>
 
-          <svg
-            width="29"
-            height="31"
-            viewBox="0 0 29 31"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            onClick={() =>
-              window.open("https://github.com/StretcH3421", "_blank")
-            }
-          >
-            <path
-              d="M10.5836 25.2857C3.91691 27.2857 3.91691 21.9524 1.25024 21.2857M19.9169 29.2857V24.1257C19.9669 23.4899 19.881 22.8508 19.6649 22.2508C19.4488 21.6508 19.1075 21.1036 18.6636 20.6457C22.8502 20.1791 27.2502 18.5924 27.2502 11.3124C27.2499 9.45083 26.5338 7.66066 25.2502 6.31239C25.8581 4.68373 25.8151 2.88352 25.1302 1.28572C25.1302 1.28572 23.5569 0.819057 19.9169 3.25906C16.8609 2.43082 13.6396 2.43082 10.5836 3.25906C6.94358 0.819057 5.37024 1.28572 5.37024 1.28572C4.68541 2.88352 4.64244 4.68373 5.25024 6.31239C3.95708 7.67066 3.24027 9.47701 3.25024 11.3524C3.25024 18.5791 7.65024 20.1657 11.8369 20.6857C11.3982 21.139 11.0599 21.6796 10.844 22.2723C10.628 22.865 10.5393 23.4965 10.5836 24.1257V29.2857"
-              stroke="#1E1E1E"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+            <svg
+              width="29"
+              height="31"
+              viewBox="0 0 29 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="hover:scale-110"
+              onClick={() =>
+                window.open("https://github.com/StretcH3421", "_blank")
+              }
+            >
+              <path
+                d="M10.5836 25.2857C3.91691 27.2857 3.91691 21.9524 1.25024 21.2857M19.9169 29.2857V24.1257C19.9669 23.4899 19.881 22.8508 19.6649 22.2508C19.4488 21.6508 19.1075 21.1036 18.6636 20.6457C22.8502 20.1791 27.2502 18.5924 27.2502 11.3124C27.2499 9.45083 26.5338 7.66066 25.2502 6.31239C25.8581 4.68373 25.8151 2.88352 25.1302 1.28572C25.1302 1.28572 23.5569 0.819057 19.9169 3.25906C16.8609 2.43082 13.6396 2.43082 10.5836 3.25906C6.94358 0.819057 5.37024 1.28572 5.37024 1.28572C4.68541 2.88352 4.64244 4.68373 5.25024 6.31239C3.95708 7.67066 3.24027 9.47701 3.25024 11.3524C3.25024 18.5791 7.65024 20.1657 11.8369 20.6857C11.3982 21.139 11.0599 21.6796 10.844 22.2723C10.628 22.865 10.5393 23.4965 10.5836 24.1257V29.2857"
+                stroke="#1E1E1E"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </div>
         <div className="flex flex-col sm:flex-row w-full mx-auto justify-center items-center sm:flex-1 mb-30">
           <div className="project-names text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] text-[#555555] flex flex-1 flex-col gap-3 xl:gap-8 text-center mt-25 mb-25 xl:mt-0 xl:mb-0 md:pl-5 xl:pl-15 ">
